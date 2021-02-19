@@ -14,6 +14,7 @@ import { MusicContext, AudioContext } from "../../../content/MusicContext";
 import { playList as playListLocalStorage } from "../../../storage/music_store";
 import usePlay from "../../../hooks/usePlay";
 import Lyric from "./lyric";
+import { Text } from '../../../styles'
 
 function Player() {
   const [music, onPlay] = usePlay();
@@ -64,10 +65,10 @@ function Player() {
           <img src={picUrl} alt="专辑封面" />
         </div>
         <section className="text">
-          <span className="name">{name}</span>
-          <span>{format_author(ar)}</span>
+          <Text size="h2">{name}</Text>
+          <Text size="h4">{format_author(ar)}</Text>
         </section>
-      </section>
+      </section> 
 
       <section className="operation">
         <i className="fas fa-play" onClick={() => togPlay()}></i>

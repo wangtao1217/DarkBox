@@ -2,6 +2,7 @@ import * as React from "react";
 
 import { Container } from "./styles";
 import { AlbumType } from "../index";
+import { Text } from "../../../styles";
 
 const Info = ({ name, description, tags, coverImgUrl }: AlbumType) => {
   return (
@@ -10,8 +11,8 @@ const Info = ({ name, description, tags, coverImgUrl }: AlbumType) => {
         <img src={coverImgUrl} alt={name}></img>
       </span>
       <section className="text">
-        <span className="text m">{name}</span>
-        <span className="description m">{description}</span>
+        <Text size="h2">{name}</Text>
+        <Text className="description m">{description}</Text>
         <span className="tags m">
           {tags?.map((item: string) => (
             <span key={item}>{item}</span>

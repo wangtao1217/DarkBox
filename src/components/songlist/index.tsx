@@ -10,7 +10,7 @@ import { getAlbum } from "../../api/album";
 import { format_time, format_author } from "../../utils/formatter";
 
 import usePlay from "../../hooks/usePlay";
-
+import { Text } from '../../styles';
 
 const Wrapper = styled.div`
 flex: 1;
@@ -42,8 +42,8 @@ function SongList({width, data }) {
       render: ({ content }) => {
         return (
           <span className="music-content">
-            <span className="name">{content.name}</span>
-            <span className="al">{format_author(content.ar)}</span>
+            <Text size="h2" className="name">{content.name}</Text>
+            <Text size="h3" className="al">{format_author(content.ar)}</Text>
           </span>
         );
       },

@@ -16,10 +16,11 @@ export const ResultContainer = styled.section<{ top: boolean }>`
     }
   }
 
-  .result {
+  .result {  
     flex: 1;
-    /* height:100%; */
+    height:100%;
     overflow: hidden;
+    width: 100%;
     .songlist{
       height: 100%;
       margin: 0;
@@ -29,6 +30,7 @@ export const ResultContainer = styled.section<{ top: boolean }>`
       display: flex;
       flex-wrap: wrap;
       position:relative;
+      overflow-y: scroll;
       .wrapper{
           margin: 10px;
           width: 136px;

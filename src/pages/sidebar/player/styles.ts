@@ -32,9 +32,7 @@ const Container = styled.div<{ occupy: boolean }>`
   }
 }
 .text{
-  overflow:hidden;
   display:flex;
-/*   flex:1; */
   width: 110px;
   flex-direction: column;
 }
@@ -42,6 +40,7 @@ const Container = styled.div<{ occupy: boolean }>`
 /*   flex:; */
   font-size: 21px;
   margin-bottom: 5px;
+  width:100px;
   color: ${p => p.theme.text.primary};
   /* text-overflow: ellipsis; */
   /* transform: translateX(20px); */

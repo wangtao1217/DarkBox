@@ -10,11 +10,11 @@ export interface CardType {
 }
 
 function Card({ name, coverImgUrl, id }: CardType) {
-  const children = React.useRef(null);
   const history = useHistory();
   const handleClick = () => history.push(`/detail/${id}`);
+
   return (
-    <Wrapper ref={children} onClick={handleClick}>
+    <Wrapper onClick={handleClick}>
       <div>
         <img src={coverImgUrl} alt={name} />
       </div>

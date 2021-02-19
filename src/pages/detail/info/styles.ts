@@ -1,26 +1,23 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
-const tag_size = 12
-const img_size = 160
+const tag_size = 12;
+const img_size = 120;
+const border = "box-sizing: border-box;";
 
 const Container = styled.section`
-    height: fit-content;
-    width: 100%;
     display: flex;
     padding: 12px;
-    background-color: ${p => p.theme.bgc.secondary};
-    box-sizing: border-box;
-    .m{
-        margin: 10px 0 ;
-    }
+    background-color: ${(p) => p.theme.bgc.secondary};
+    margin-bottom:10px;
+    ${border}
     p{
         margin: 0;
     }
     .img{
         height: ${img_size}px;
         width: ${img_size}px;
-        background-color: ${p => p.theme.bgc.sping}
-        
+        background-color: ${(p) => p.theme.bgc.sping};
+        margin-right: 10px;
     }
     img{
             width: 100%;
@@ -29,19 +26,19 @@ const Container = styled.section`
         font-size: 18px;
     }
     .description{
-        color: ${p => p.theme.text.secondary};
+        color: ${(p) => p.theme.text.secondary};
         font-size: 14px;
         max-height: 170px;
         overflow: overlay;
     }
     .tags{
+        margin-top: auto;
         span{
             height:${tag_size}px;
             width:auto;
-            margin:0 5px; 
             padding: 4px 10px;
-            color: ${p => p.theme.text.secondary};
-            background-color: ${p => p.theme.bgc.secondary};
+            color: ${(p) => p.theme.text.secondary};
+            background-color: ${({ theme }) => theme.bgc.primary};
             font-size: 12px;
             line-height: 14px;
         }
@@ -52,6 +49,6 @@ const Container = styled.section`
         flex-direction: column;
         margin-left:10px;
     }
-`
+`;
 
-export { Container }
+export { Container };

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const sider_css = {
     padding: 12,
-    width: 250,
+    width: 220,
     item_space: 7
 }
 

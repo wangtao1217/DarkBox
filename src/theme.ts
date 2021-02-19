@@ -1,7 +1,7 @@
  const theme = {
+
     bgc: {
         primary: 'rgba(26, 27, 33, 1)',
-        // primary: 'rgba(220,220,220)',
         secondary: 'rgba(40, 41, 48, 1)',
         sping: '#29292d',
         active: 'rgba(97, 122, 255, 1)',
