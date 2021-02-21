@@ -8,7 +8,6 @@ import { getAlbum } from "../api/album";
 
 import {
     playList as playListLocalStorage,
-    playHistory as playHistoryLocalStorage,
 } from "../storage/music_store";
 
 
@@ -38,11 +37,7 @@ const usePlay: UsePlayType = () => {
                     playlist
                 },
             });
-            // console.log("❗");
-
         });
-        // console.log("✅");
-        // console.log(playlist);
 
     }, [setMusic, setList])
     const playNext = useCallback(() => {

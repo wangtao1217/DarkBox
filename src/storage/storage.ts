@@ -14,8 +14,6 @@ const LocalStorageFactory = (params: Storage) => {
     const { key, defaultvalue } = params;
 
     const setItem = (value) => {
-        // console.log("🚩🚩🚩🚩🚩")
-        // console.log(value)
         const data: string = JSON.stringify(value)
         window.localStorage.setItem(key, data || String(defaultvalue));
     };

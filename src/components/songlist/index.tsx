@@ -18,12 +18,16 @@ const Wrapper = styled.div`
   box-sizing: border-box;
 `;
 
-function SongList({ width, data, columns }: {
-  width: any,
-  data: any
-  columns?: any
+function SongList({
+  width,
+  data,
+  columns,
+}: {
+  width: any;
+  data: any;
+  columns?: any;
 }) {
-  const { state, dispatch } = React.useContext(MusicContext);
+  const { state } = React.useContext(MusicContext);
 
   const columnsdefault = [
     {
@@ -72,15 +76,14 @@ function SongList({ width, data, columns }: {
       picUrl: al.picUrl,
       time: `${min}:${sec}`,
       duration: dt / 1000,
-    index
-    }); 
+      index,
+    });
   });
 
   return (
     <Wrapper className="songlist">
       <Table
         dataSource={dataSource}
-
         columns={columns ? columns : columnsdefault}
         width={width}
         hidehead={true}

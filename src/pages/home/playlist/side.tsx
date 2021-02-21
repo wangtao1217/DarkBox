@@ -13,7 +13,6 @@ const Container = styled.section`
 `
 
 const Side = ({children, show}) => {
-    // const [show, setShow] = useState(false)
     return (
         <Container show={show}>
             {children}

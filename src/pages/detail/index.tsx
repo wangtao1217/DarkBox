@@ -26,18 +26,17 @@ const Detail = () => {
   const [album, setAlbum] = useState<AlbumType>(defaultValue);
   const [state, getSongs] = useAsyncFn(song);
   const { albumId } = useParams();
-
   const { name, description, trackIds, trackCount, coverImgUrl, tags } = album;
-  
-useMemo(()=>{
-  getAlbum(Number(albumId)).then((res) => {
-    setAlbum(() => res.playlist);
-  });
-},[albumId])
 
-useMemo(() => {
-    if(trackIds){
-      getSongs(trackIds.map((i) => i.id).join(','));
+  useMemo(() => {
+    getAlbum(Number(albumId)).then((res) => {
+      setAlbum(() => res.playlist);
+    });
+  }, [albumId]);
+
+  useMemo(() => {
+    if (trackIds) {
+      getSongs(trackIds.map((i) => i.id).join(","));
     }
   }, [album]);
 
@@ -50,9 +49,9 @@ useMemo(() => {
   return (
     <Container>
       <Info {...InfoProps} />
-     { trackCount}
+      {trackCount}
       <Songlist data={state.value} width={["0 40px", 2, "0 70px"]} />
-    </Container> 
+    </Container>
   );
 };
 

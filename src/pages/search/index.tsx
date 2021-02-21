@@ -31,10 +31,8 @@ export type HotSearchType = {
 //====== CComponent ======
 const Search = () => {
   const input_ref = useRef<any>();
-
   const { path } = useRouteMatch();
   const history = useHistory();
-  const { state } = useContext(MusicContext);
 
   const [value, setValue] = useState<string | null>(null);
   const [result, setResult] = useState([]);

@@ -12,9 +12,6 @@ const Container = styled.div<{ occupy: boolean }>`
   border-radius: 4px;
   transition: 0.3s;
   transform: translateX(${(p) => (p.occupy ? 0 : -250)}px);
-  /* &:hover {
-    box-shadow: rgba(3, 3, 3, 0.2) 0px 0px 12px 2px;
-  } */
   .infor {
     width: 100%;
     height: auto;
@@ -37,19 +34,15 @@ const Container = styled.div<{ occupy: boolean }>`
     flex-direction: column;
   }
   .text .name {
-    /*   flex:; */
     margin-bottom: 5px;
     width: 100px;
     color: ${(p) => p.theme.text.primary};
-    /* text-overflow: ellipsis; */
-    /* transform: translateX(20px); */
+   
   }
   .text span {
     display: flex;
     white-space: nowrap;
     overflow: hidden;
-
-    /*   background-color: red; */
     margin: 1px;
     margin-left: 10px;
     box-sizing: border-box;
@@ -73,7 +66,6 @@ const Container = styled.div<{ occupy: boolean }>`
     justify-content: space-around;
     align-items: center;
     i {
-      transform: scale(${({down})=>down?0.9:1});
       cursor: pointer;
       height: 40px;
       width: 32px;

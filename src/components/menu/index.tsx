@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-// import { Element } from "react-use/lib/useSize";
 
 import { MenuOption } from "./types";
 import Item from "./child/item";
@@ -16,7 +15,7 @@ function Menu({ data }) {
 
   const creator = (data: Array<MenuOption>) => {
     if (!data) return null;
-    return data.map((item, index) => {
+    return data.map((item) => {
       let { type, content, route, key, icon } = item;
 
       if (type === "item" || type === null) {

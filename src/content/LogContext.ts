@@ -4,7 +4,7 @@ import { LogContextType, LogAction, LogState } from './types'
 import user_store from '../storage/user_store'
 
 
-const log_initial = {
+export const log_initial = {
     islogged: !!user_store.getItem().userId,
     user: {
         profile: {
@@ -17,7 +17,7 @@ const log_initial = {
     show: false,
 }
 
-const log_reducer = (state: LogState, action: LogAction) => {
+export const log_reducer = (state: LogState, action: LogAction) => {
     switch (action.type) {
         case 'log_in':
             user_store.setItem(action.load.user)
@@ -41,15 +41,9 @@ const log_reducer = (state: LogState, action: LogAction) => {
     }
 }
 
-const log_context: LogContextType = {
+export const log_context: LogContextType = {
     state: log_initial,
     dispatch: () => { }
 }
 
-const LogContext = createContext(log_context)
-
-export {
-    log_reducer,
-    log_initial,
-    LogContext,
-}
+export const LogContext = createContext(log_context)
