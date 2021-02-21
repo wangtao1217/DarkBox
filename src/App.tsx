@@ -6,9 +6,12 @@ import {  Container, Main } from "./styles";
 import SideBar from "./pages/sidebar/index";
 import Search from "./pages/search";
 import Home from "./pages/home/index";
-import AlbumList from "./pages/collection";
+import { Created, Subscribed } from "./pages/collection";
 import Detail from "./pages/detail";
 import Lyric from "./pages/sidebar/player/lyric";
+import PlayList from './pages/home/playlist'
+import usePlay from './hooks/usePlay'
+import Form from './components/form'
 
 import {
   AudioContext,
@@ -18,6 +21,7 @@ import {
 } from "./content/MusicContext";
 import { LogContext, log_reducer, log_initial } from "./content/LogContext";
 
+import { playModle } from './storage/music_store'
 
 
 export const routes = [
@@ -31,14 +35,21 @@ export const routes = [
       path: "/detail/:albumId",
       render: <Detail/>
   },
-  // {
-  //     path: "/albumns",
-  //     render: () => <AlbumList>
-  // }
+  {
+      path: "/created",
+      render: <Created/>
+  },{
+    path: "/subscribed",
+    render:  <Subscribed/>
+}
 ]
 
 
 const App = () => {
+  const play_modle = playModle.getItem()
+  console.log(play_modle);
+  
+  const [music, onPlay, playPrev, playNext, randomPlay] = usePlay()
   const [state, dispatch] = useReducer(music_reducer, initial);
   const [log_state, log_dispatch] = useReducer(log_reducer, log_initial);
   const { musicUrl } = state;
@@ -59,7 +70,8 @@ const App = () => {
 
   useEffect(() => {
     audioControls.play();
-  }, [state]);
+  }, [state.musicId]);
+
   return (
     <>
       <LogContext.Provider value={{ state: log_state, dispatch: log_dispatch }}>
@@ -69,8 +81,9 @@ const App = () => {
             <Router>
               <Container>
                 <SideBar />
+                <Form/>
                 <Main>
-                  <Lyric/>
+                  <PlayList/>
                   <Switch>
                     {routes.map(({ path, render }, i: number) => {
                       return <Route key={i} path={path} children={()=>render} />;

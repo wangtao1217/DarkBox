@@ -1,54 +1,56 @@
 import * as React from "react";
-import { Element } from "react-use/lib/useSize"; 
+import { Element } from "react-use/lib/useSize";
 
 import { Table_container, Cell } from "./styles";
 import usePlay from "../../../hooks/usePlay";
 
-
-export type DataSource = any
+export type DataSource = any;
 
 export type Columns = {
-    title: string
-    key: string | number
-    dataIndex: string //索引行
-    render?: (item?: any) => Element
- }[]
+  title: string;
+  key: string | number;
+  dataIndex: string; //索引行
+  render?: (item?: any) => Element;
+}[];
 
 export type TableType = {
   dataSource?: any;
   columns?: Columns;
   class?: string;
-  onDoubleClick?: React.ReactEventHandler
-  width?: Array<string>
-  hidehead?: boolean
-  data?: Array<any>
+  onDoubleClick?: React.ReactEventHandler;
+  width?: Array<string>;
+  hidehead?: boolean;
+  data?: Array<any>;
 };
 
-
-function Table({ dataSource, columns, onDoubleClick, width, hidehead }: TableType) {
+const Table = ({
+  dataSource,
+  columns,
+  width,
+  hidehead,
+}: TableType) => {
   const [music, onPlay] = usePlay();
-return (
+  return (
     <Table_container>
-      {hidehead?null:(<section className="head">
-        {columns.map((val, i) => {
-          const { title, key } = val;
-          return (
-            <Cell key={key} width={width[i]}>
-              {title}
-            </Cell>
-          );
-        })}
-      </section>)}
+      {hidehead ? null : (
+        <section className="head">
+          {columns.map((val, i) => {
+            const { title, key } = val;
+            return (
+              <Cell key={key} width={width[i]}>
+                {title}
+              </Cell>
+            );
+          })}
+        </section>
+      )}
       <section className="body">
         {dataSource?.map((item, key) => {
           return (
-            <section className="row" key={key} onClick={()=>{
-              console.log("====== item ======");
-              // console.log(item);
-              onPlay(item.id)
-              
-              
-            }}>
+            <section className="row" key={key} onClick={() => onPlay({
+              musicId: item.id,
+              playlist: dataSource
+            })}>
               {columns.map((cell, i) => {
                 const { dataIndex, render } = cell;
                 return (

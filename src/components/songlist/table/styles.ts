@@ -4,14 +4,13 @@ import theme from "../../../theme";
 
 const TEXT = theme.text.text;
 
-const Table_container = styled(Container)`
+const Table_container = styled.section`
   display: flex;
   min-height: 40px;
   width: 100%;
   color: ${(p) => p.theme.text.secondary};
   flex-direction: column;
-over
-  .head {
+  over .head {
     display: flex;
     padding: 2px 5px;
     width: 100%;
@@ -37,19 +36,19 @@ over
       }
     }
     .music-content {
-    display: flex;
-    flex-direction: column;
-    margin: 7px 0;
-    
-    .name {
-        color: ${p => p.theme.text.primary};
-      font-size: 18px;
-      margin-bottom: 5px;
+      display: flex;
+      flex-direction: column;
+      margin: 7px 0;
+
+      .name {
+        color: ${(p) => p.theme.text.primary};
+        font-size: 18px;
+        margin-bottom: 5px;
+      }
+      .al {
+        font-size: 14px;
+      }
     }
-    .al {
-      font-size: 14px;
-    }
-  }
   }
 `;
 const Cell = styled.div<{ width }>`

@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from 'styled-components'
+import styled from "styled-components";
 
 import Table from "./table";
 import createMusic, { Music } from "../../utils/create_music";
@@ -10,22 +10,25 @@ import { getAlbum } from "../../api/album";
 import { format_time, format_author } from "../../utils/formatter";
 
 import usePlay from "../../hooks/usePlay";
-import { Text } from '../../styles';
+import { Text } from "../../styles";
 
 const Wrapper = styled.div`
-flex: 1;
-    overflow-y: scroll;
-    margin-top: 20px;
-    box-sizing: border-box;
-`
+  flex: 1;
+  overflow-y: scroll;
+  box-sizing: border-box;
+`;
 
-function SongList({width, data }) {
+function SongList({ width, data, columns }: {
+  width: any,
+  data: any
+  columns?: any
+}) {
   const { state, dispatch } = React.useContext(MusicContext);
-  
-  const columns = [
+
+  const columnsdefault = [
     {
       title: "index",
-      key: '0',
+      key: "0",
       dataIndex: "index",
       render: ({ index, id }) => {
         return (
@@ -37,43 +40,48 @@ function SongList({width, data }) {
     },
     {
       title: "...",
-      key: '1',
+      key: "1",
       dataIndex: "content",
-      render: ({ content }) => {
+      render: ({ name, ar }) => {
         return (
           <span className="music-content">
-            <Text size="h2" className="name">{content.name}</Text>
-            <Text size="h3" className="al">{format_author(content.ar)}</Text>
+            <Text size="h2" className="name">
+              {name}
+            </Text>
+            <Text size="h3" className="al">
+              {format_author(ar)}
+            </Text>
           </span>
         );
       },
     },
     {
       title: "time",
-      key: '2',
+      key: "2",
       dataIndex: "time",
       render: ({ time }) => <span>{time}</span>,
     },
   ];
 
   const dataSource = data?.map((song, index) => {
-    const { name, id, dt: duration, ar } = song;
-    const { sec, min } = format_time(duration / 1000);
-    return {
-      index,
-      content: {
-        name,
-        ar,
-      },
-      id,
+    const { name, id, dt, al, ar } = song;
+    const { sec, min } = format_time(dt / 1000);
+    return createMusic({
+      ...song,
+      musicId: id,
+      picUrl: al.picUrl,
       time: `${min}:${sec}`,
-    };
+      duration: dt / 1000,
+    index
+    }); 
   });
+
   return (
     <Wrapper className="songlist">
       <Table
         dataSource={dataSource}
-        columns={columns}
+
+        columns={columns ? columns : columnsdefault}
         width={width}
         hidehead={true}
       />

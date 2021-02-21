@@ -5,6 +5,7 @@ export type ItemType = {
     log?: boolean | string
     stick?: boolean
     key?: number
+    icon?: string
 }
 
 
@@ -14,34 +15,41 @@ const menu_data: Array<ItemType> = [
         content: "主页",
         route: "/home",
         stick: true,
-        key: 0
+        key: 0,
+        icon: "💻"
     },{
         type: "item",
         content: "搜索",
         route: "/search",
         stick: true,
-        key: 1
+        key: 1,
+        icon: "🔍"
     },
     {
         type: "item",
         content: "喜欢的音乐",
-        route: "/detail",
+        route: `/detail:`,
         log: true,
-        key: 2
+        key: 2,
+        icon: "♥"
+
     },
     {
         type: "item",
         content: "我的歌单",
-        route: "/albumns",
+        route: "/created",
         log: true,
-        key: 3
+        key: 3,
+        icon: "💻"
+
     },
     {
         type: "item",
         content: "收藏歌单`",
-        route: "/collections",
+        route: "/subscribed",
         log: true,
-        key: 4
+        key: 4,
+        icon: "💻"
 
     },
 ];

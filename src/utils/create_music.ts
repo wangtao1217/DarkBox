@@ -1,4 +1,5 @@
 export interface Music {
+    musicId?: number
     name: string | null;
     id: null | number;
     picUrl?: string | null;

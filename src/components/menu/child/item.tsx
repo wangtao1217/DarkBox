@@ -8,8 +8,6 @@ import { ActiveContext } from "../";
 function Item({ content, index, route }: MenuOption) {
   const { act_num, dispatch } = useContext(ActiveContext);
   const act_route = useLocation().pathname.split('/')[1]
-  console.log("useLocation().pathname");
-  console.log(useLocation().pathname.split('/')[1]);
   
   return (
     <Item_wrapper active={route == '/'+act_route} onClick={() => dispatch(index)}>

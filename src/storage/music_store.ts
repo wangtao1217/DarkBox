@@ -1,12 +1,12 @@
 import LocalStorageFactory from "./storage";
 
 
-const playHistory = LocalStorageFactory({
-    key: 'playhistory',
+export const playHistory = LocalStorageFactory({
+    key: '__playhistory',
     defaultvalue: []
 });
 
-const setPlayHistory = (music) => {
+export const setPlayHistory = (music) => {
     let list = playHistory.getItem() || [];
     let index = list.findIndex(item => item.id === music.id)
 
@@ -15,24 +15,21 @@ const setPlayHistory = (music) => {
     }
 
     list.unshift(music)
-    console.log(list)
     playHistory.setItem(list)
 
     return list;
 };
 
-const playList = LocalStorageFactory({
+export const playList = LocalStorageFactory({
     key: '__playlist',
     defaultvalue: []
 })
 
-const setPlayList = data => {
+export const setPlayList = data => {
     playList.setItem(data ? data : [])
 }
 
-export {
-    playList,
-    setPlayList,
-    playHistory,
-    setPlayHistory,
-}
+export const playModle = LocalStorageFactory({
+    key: "__playmodle",
+    defaultvalue: "singleloop"
+})

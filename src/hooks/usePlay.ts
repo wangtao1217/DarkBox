@@ -1,51 +1,78 @@
 import { song } from '../api/songs'
-import { useCallback, useState, useContext, useEffect } from 'react'
+import { useCallback, useState, useContext, useEffect, useMemo } from 'react'
 // import Table from "./table";
 import createMusic, { Music } from "../utils/create_music";
 import { Type } from "../content/types";
 import { MusicContext, AudioContext } from "../content/MusicContext";
 import { getAlbum } from "../api/album";
 
-const initial = {
-    name: null,
-    ar: ["null"],
-    duration: 100,
-    id: 0,
-}
+import {
+    playList as playListLocalStorage,
+    playHistory as playHistoryLocalStorage,
+} from "../storage/music_store";
 
-type Initial = {
-    name: string | null,
-    ar: string[],
-    duration: number,
-    id: number,
-}
 
 type UsePlayType = Function
 
 const usePlay: UsePlayType = () => {
     const { state, dispatch } = useContext(MusicContext);
-    const [music, setMusic] = useState<Music>(state.music);
+    const [music, setMusic] = useState<Music | any>(state.music);
+    const [list, setList] = useState(playListLocalStorage.getItem());
 
-    const handle_dispatch = useCallback((id: number) => {
-        song(id).then((res) => {
-            setMusic(() => {
-                return createMusic({
-                    ...res[0],
-                    id,
-                    picUrl: res[0]?.al.picUrl,
-                    duration: res[0].dt / 1000,
-                });
+    const playList = useMemo(() => playListLocalStorage.getItem(), [
+        state.musicId,
+    ]);
+
+    const handle_dispatch = useCallback(({ musicId, playlist }) => {
+        song(musicId).then((res) => {
+            let { al, dt } = res[0]
+            dispatch({
+                type: Type.PLAY,
+                load: {
+                    musicId, music: createMusic({
+                        ...res[0],
+                        musicId,
+                        picUrl: al.picUrl,
+                        duration: dt / 1000,
+                    }),
+                    playlist
+                },
             });
+            // console.log("❗");
+
         });
-       
-    }, [setMusic])
-    useEffect(()=>{
-        dispatch({
-            type: Type.PLAY,
-            load: { musicId: music.id, music },
-        });
-    },[music])
-    return [music, handle_dispatch]
+        // console.log("✅");
+        // console.log(playlist);
+
+    }, [setMusic, setList])
+    const playNext = useCallback(() => {
+        let i = playList.findIndex((music) => music.id === state.musicId);
+        if (i == (playList.length - 1)) {
+            i = -1
+        }
+        let nextId = playList[(i += 1)].id;
+
+        handle_dispatch({ musicId: nextId, playlist: playList });
+    }, [playList, handle_dispatch]);
+
+    const playPrev = useCallback(() => {
+        let i = playList.findIndex((music) => music.id === state.musicId);
+        if (i == 0) {
+            i = (playList.length - 1)
+        }
+        let prevId = playList[(i - 1)].id;
+        handle_dispatch({ musicId: prevId, playlist: playList });
+    }, [playList, handle_dispatch]);
+
+    const randomPlay = useCallback(() => {
+        let randomIndex = Math.floor(Math.random() * playList.length)
+        alert(randomIndex)
+
+        let musicId = playList[randomIndex].id;
+        handle_dispatch({ musicId, playlist: playList });
+
+    }, [playList, handle_dispatch])
+    return [music, handle_dispatch, playPrev, playNext, randomPlay]
 }
 
 export default usePlay

@@ -14,7 +14,7 @@ export interface LogState {
 }
 
 export interface LogAction {
-    type: "log_in" | "log_out" | "show_form",
+    type: "log_in" | "log_out" | "show_form" | "toggle",
     load: { user: {} }
 }
 
@@ -28,16 +28,19 @@ export interface MusicState {
     musicId: number | null;
     music: Music;
     musicUrl?: string;
+    playlist?: [] | Array<Music>
+    showplaylist?: boolean
 }
 
 export interface LoadMusic {
     musicId: number;
     music: Music
-    playList: Music[]
+    playlist: any
+    showplaylist?: boolean
 }
 
 export interface MusicAction {
-    type: "PLAY" | "SET_PLAY_LIST",
+    type: "PLAY" | "SET_PLAY_LIST" | "toggle",
     load: LoadMusic
 }
 
@@ -48,6 +51,7 @@ export const Type = {
     SET_PLAY_MODE: "SET_PLAY_MODE",
     SHOW_LAYOUT: "SHOW_LAYOUT",
     HIDE_LAYOUT: "HIDE_LAYOUT",
+    
 };
 
 

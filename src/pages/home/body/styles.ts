@@ -6,6 +6,7 @@ const Container = styled.div`
     padding: 30 50px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     padding: 10px 20px;
     background-color: ${p => p.theme.bgc.primary};
     &::-webkit-scrollbar {
@@ -13,7 +14,6 @@ const Container = styled.div`
     }
     .container{
         display: grid;
-        grid-template-columns: 3fr 2fr;
         grid-template-rows: auto 220px;
         column-gap: 20px;
         row-gap: 15px;
@@ -33,7 +33,7 @@ const Container = styled.div`
     .item{
         margin: 0 10px;
         height: 100%;
-        width: 136px;
+        width: 120px;
         display: flex;
     }.wrapper{
             display: flex;

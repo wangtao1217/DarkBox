@@ -1,10 +1,8 @@
-import React, { useEffect, useState, useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Top_Container, Span } from "./styles";
 import Form from "../../../components/form";
 import { useLocation, useRouteMatch } from "react-router-dom";
-
-import { login } from "../../../api/log";
 
 export type ItemType = {
   type?: "item" | "subitem";
@@ -30,21 +28,21 @@ export const TabMenu = ({ items }) => {
   const route_list = pathname.split("/");
   return (
     <span style={{ display: "flex" }}>
-      {items?.map(({ route, title }, index) => {
+      {items?.map(({ route, title }) => {
         return (
-          <Link className="link" to={route ? `${path}/${route}` : `${path}`}>
-            <Span
-              active={
-                route
-                  ? route === route_list[route_list.length - 1]
-                  : path.split("/")[path.split("/").length - 1] ===
-                    route_list[route_list.length - 1]
-              }
-              key={index}
-            >
+          <Span
+            key={route}
+            active={
+              route
+                ? route === route_list[route_list.length - 1]
+                : path.split("/")[path.split("/").length - 1] ===
+                  route_list[route_list.length - 1]
+            }
+          >
+            <Link className="link" to={route ? `${path}/${route}` : `${path}`}>
               {title}
-            </Span>
-          </Link>
+            </Link>
+          </Span>
         );
       })}
     </span>

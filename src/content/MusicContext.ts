@@ -2,7 +2,7 @@ import { createContext } from 'react'
 
 import { MusicContextType, MusicAction, MusicState, Type } from "./types"
 
-import { setPlayHistory, setPlayList } from '../storage/music_store'
+import { setPlayHistory, setPlayList, playList as playListLocalStorage } from '../storage/music_store'
 import musicUrl from '../api/musicUrl'
 
 const initial = {
@@ -11,7 +11,8 @@ const initial = {
         name: null,
         id: 0,
         ar: []
-    }
+    },
+    showplaylist: false
 }
 
 const music_reducer = (state: MusicState, { type, load }: MusicAction) => {
@@ -20,18 +21,27 @@ const music_reducer = (state: MusicState, { type, load }: MusicAction) => {
             if (!load) {
                 return { ...state };
             }
-            
-            setPlayHistory(load.music);
-            setPlayList(load.playList);
 
+            setPlayHistory(load.music);
+            setPlayList(load.playlist)
+console.log("😱");
+console.log(load.playlist);
+
+
+  
             return {
                 ...state,
                 musicId: load.musicId,
                 musicUrl: musicUrl(load.musicId),
                 music: load.music,
+                // playlist: load.playlist||[]
             };
-        case Type.SET_PLAY_LIST:
-
+        // case Type.SET_PLAY_LIST:
+        case "toggle":
+            return {
+                ...state,
+                showplaylist: !state.showplaylist
+            }
         default:
             return null;
     }

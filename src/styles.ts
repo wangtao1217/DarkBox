@@ -49,5 +49,20 @@ export const Text = styled.span`
     -webkit-line-clamp: 2 ;
     -webkit-box-orient: vertical;
     box-sizing: border-box;
-     ${({ size }) => _textsize(size)};
+     /* ${({ size }) => _textsize(size)}; */
+`
+
+export const H1 = styled(Text)`
+  ${_textsize("h1")}
+`
+
+export const H2 = styled(Text)`
+  ${_textsize("h2")}
+`
+
+export const H3 = styled(Text)`
+  ${_textsize("h3")}
+`
+export const H4 = styled(Text)`
+  ${_textsize("h4")}
 `

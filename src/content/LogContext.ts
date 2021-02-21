@@ -34,8 +34,6 @@ const log_reducer = (state: LogState, action: LogAction) => {
                 user: {},
             }
         case 'show_form':
-            console.log('succed');
-
             return {
                 ...state,
                 show: !state.show

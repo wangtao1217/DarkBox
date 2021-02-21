@@ -27,7 +27,6 @@ const Log = () => {
   }, [state]);
   return (
     <LogContainer>
-        {/* <Avater picUrl={null}/> */}
       {state.islogged ? (
           <>
             <Avater picUrl={profile.avatarUrl} />
@@ -35,7 +34,7 @@ const Log = () => {
           </>
         ) : (
           <>
-            <span  className='login' onClick={handle_login}>
+            <span  className='login' onClick={()=>handle_login()}>
               {'🤴 登录'}
             </span>
           </>

@@ -8,5 +8,6 @@ export interface MenuOption {
     direction?: string;
     index?: number|string
     key: number
+    icon?: string
 }
 

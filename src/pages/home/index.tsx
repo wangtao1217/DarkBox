@@ -10,8 +10,12 @@ import styled from "styled-components";
 import { Container } from "../../styles";
 import TopBar from "./topbar/index";
 import Content from "./body/index";
+import PlayList from './playlist'
 
-const Home_container = styled(Container)`
+const Home_container = styled.section`
+display:flex;
+height:100vh;
+width:100%;
   flex-direction: column;
 `;
 function Home() {

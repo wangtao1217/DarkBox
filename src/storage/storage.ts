@@ -1,9 +1,21 @@
-import { Storage } from './types'
+export type Key = '__session'
+    | '__playlist'
+    | '__playhistory'
+    | '__playmode'
+    | "__playmodle"
+
+export interface Storage {
+    key: Key;
+    defaultvalue: [] | {} | string
+}
+
 
 const LocalStorageFactory = (params: Storage) => {
     const { key, defaultvalue } = params;
 
-    const setItem = (value: object) => {
+    const setItem = (value) => {
+        // console.log("🚩🚩🚩🚩🚩")
+        // console.log(value)
         const data: string = JSON.stringify(value)
         window.localStorage.setItem(key, data || String(defaultvalue));
     };

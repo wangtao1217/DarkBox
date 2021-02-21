@@ -11,7 +11,7 @@ export const Container = styled.div`
     text-decoration: none;
     color:${props => props.theme.text.secondary}
     }
-    color:white;
+    color:white; 
 
 `
 

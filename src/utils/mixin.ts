@@ -16,6 +16,8 @@ export const _before = (content = '') => css`
     position: absolute;
     top: 0;
     left: 0;
+    width: 10px;
+    height: 10px;
 `
 
 export const Scroll = styled.section`

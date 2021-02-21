@@ -31,8 +31,6 @@ const Detail = () => {
   
 useMemo(()=>{
   getAlbum(Number(albumId)).then((res) => {
-    console.log(albumId)
-    console.log(res)
     setAlbum(() => res.playlist);
   });
 },[albumId])
@@ -52,6 +50,7 @@ useMemo(() => {
   return (
     <Container>
       <Info {...InfoProps} />
+     { trackCount}
       <Songlist data={state.value} width={["0 40px", 2, "0 70px"]} />
     </Container> 
   );

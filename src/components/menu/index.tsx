@@ -17,12 +17,12 @@ function Menu({ data }) {
   const creator = (data: Array<MenuOption>) => {
     if (!data) return null;
     return data.map((item, index) => {
-      let { type, content, route, key } = item;
+      let { type, content, route, key, icon } = item;
 
       if (type === "item" || type === null) {
         return (
-          <Link className="link" to={route}>
-            <Item  content={content} index={index} key={key} route={route} />
+          <Link key={key} className="link" to={route}>
+            <Item  content={content} index={icon} key={key} route={route} />
           </Link>
         );
       } else {
