@@ -6,22 +6,19 @@ export const Container = styled.div`
   cursor: pointer;
   display: flex;
   width: 100%;
-  margin: 7px 0;
   position: relative;
   user-select: none;
     .back{
         height: 4px;
         width: 100%;
         margin: 0 10px;
-        background-color: rgba(70,70,70,.2);
+        background-color: rgba(20,70,70,.2);
         max-width: 100%;
-        border-radius: 3px;
         .thumb{
             height: 100%;
             max-width: 100%;
             background-color: ${p => p.theme.text.primary};
             position: relative;
-            border-radius: 3px;
             span{
                 position: absolute;
                 right: 0;

@@ -13,6 +13,7 @@ export interface Music {
         picUrl?: string
         pic_str: string
     }
+    author?: String
 }
 
 export default function create_music({ id, name, duration, ...others }: Music): Music {

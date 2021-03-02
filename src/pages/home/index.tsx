@@ -4,10 +4,12 @@ import styled from "styled-components";
 
 import TopBar from "./topbar/index";
 import Content from "./body/index";
+import Player from "../sidebar/player"
 
 const Home_container = styled.section`
   display: flex;
-  height: 100vh;
+  /* height: 100vh; */
+  flex: 1;
   width: 100%;
   flex-direction: column;
 `;

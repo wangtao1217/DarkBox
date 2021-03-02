@@ -29,10 +29,12 @@ export const Scroll = styled.section`
 export const _flex = ({
     direc = "row",
     row = "center",
-    column = "center" 
+    column = "center" ,
+    f = "null"
 }) => css`
     display: flex;
     flex-direction: ${direc === "column" ? direc : "row"};
     justify-content: ${direc == "column" ? column : row};
     align-items: ${direc == "column" ? row : column};
+    flex: ${f?f:"null"};
 `

@@ -9,10 +9,11 @@ import { rec_album } from "../../../api/home";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import Card from "../../../components/card/index";
 import Table from "../../../components/songlist/table";
-import Layout from "../../../components/layout/index";
+// import Layout from "../../../components/layout/index";
 import Discover from "./discover";
 import Category from './category'
 import { Container } from "./styles";
+
 
 type AlbumnType = {
   name: string;

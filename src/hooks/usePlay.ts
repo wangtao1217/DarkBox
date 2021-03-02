@@ -5,6 +5,7 @@ import createMusic, { Music } from "../utils/create_music";
 import { Type } from "../content/types";
 import { MusicContext, AudioContext } from "../content/MusicContext";
 import { getAlbum } from "../api/album";
+import { format_author } from "../utils/formatter"
 
 import {
     playList as playListLocalStorage,
@@ -33,6 +34,7 @@ const usePlay: UsePlayType = () => {
                         musicId,
                         picUrl: al.picUrl,
                         duration: dt / 1000,
+                        author:format_author(res[0].ar)
                     }),
                     playlist
                 },

@@ -15,7 +15,7 @@ const Wrapper = styled.section`
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    padding: 30px 0 0 0 ;
+    padding: 30px 15px 0 15px ;
     h1{
         margin:0;
         padding:0;

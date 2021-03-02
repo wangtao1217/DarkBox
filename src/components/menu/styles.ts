@@ -7,6 +7,7 @@ const height = 42;
 export const Container = styled.div`
   width: 100%;
   height: auto;
+  
   .link {
     text-decoration: none;
     color: ${(props) => props.theme.text.secondary};
@@ -22,6 +23,13 @@ export const Item_wrapper = styled.span<{ active: boolean }>`
   margin-bottom: ${item_space}px;
   padding: 0 10px;
   box-sizing: border-box;
+  border-radius: 5px;
+  background:  ${({active})=>active?"linear-gradient(45deg, #1b6cf6, #6868f8)":null};
+  &:hover {
+    background-color: rgba(70,70,70,.2);
+  }
+
+
   span {
     display: flex;
     justify-content: center;
@@ -29,19 +37,9 @@ export const Item_wrapper = styled.span<{ active: boolean }>`
     color: ${(p) => (p.active ? p.theme.text.primary : p.theme.text.secondary)};
     transition: 0.2s;
   }
-  &:hover {
-    color: white;
-  }
-  &::before {
-    position: absolute;
-    content: "";
-    left: 0;
-    height: ${height}px;
-    width: ${(p) => (p.active ? 4 : 0)}px;
-    background-color: ${(p) => p.theme.bgc.active};
-  }
+  
   .icon {
     height: ${height}px;
     width: ${height}px;
   }
-`;
+`

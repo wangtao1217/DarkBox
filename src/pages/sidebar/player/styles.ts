@@ -1,77 +1,86 @@
 import styled from "styled-components";
+import { _flex } from "../../../utils/mixin";
 
-const Container = styled.div<{ occupy: boolean }>`
+export const Container = styled.div<{ occupy: boolean }>`
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
   width: 100%;
-  height: auto;
-  background-color: ${(p) => p.theme.bgc.secondary};
-  padding: 10px;
+  height:  ${({ occupy }) => (occupy ? "80px" : 0)};
+  padding: 0 12px;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
   margin-top: auto;
-  border-radius: 4px;
   transition: 0.3s;
-  transform: translateX(${(p) => (p.occupy ? 0 : -250)}px);
-  .infor {
+  z-index: 500;
+  bottom: 0;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  .range {
+    position: absolute;
+    height: 5px;
     width: 100%;
-    height: auto;
-    display: flex;
-    margin-bottom: 7px;
+    top: 0;
+    left: 0;
   }
-  .infor-img {
-    overflow: hidden;
-    width: 68px;
-    height: 0;
-    background-color: ${(p) => p.theme.bgc.primary};
-    padding-bottom: 70px;
-    img {
-      width: 100%;
-    }
-  }
+
   .text {
     display: flex;
     width: 110px;
     flex-direction: column;
   }
-  .text .name {
-    margin-bottom: 5px;
-    width: 100px;
-    color: ${(p) => p.theme.text.primary};
-   
-  }
+
   .text span {
     display: flex;
     white-space: nowrap;
     overflow: hidden;
     margin: 1px;
-    margin-left: 10px;
+    margin-left: 12px;
     box-sizing: border-box;
     padding: 2px 0;
     font-size: 14px;
   }
-  .time-bar {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    width: 100%;
-    margin-bottom: 14px;
-    span {
-      font-size: 12px;
-    }
-  }
-  .operation {
-    width: 100%;
-    height: 60px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    i {
-      cursor: pointer;
-      height: 40px;
-      width: 32px;
-      background-color: #f2f2f2;
-    }
+`;
+
+export const Center = styled.section`
+  ${_flex({})}
+  flex:2;
+  i {
+    margin: 0 2px;
+    cursor: pointer;
+    height: 40px;
+    width: 32px;
+    background-color: #f2f2f2;
   }
 `;
 
-export { Container };
+export const Left = styled(Center)<{hovered: boolean}>`
+  justify-content: flex-start;
+
+  .infor-img {
+    overflow: hidden;
+    width: 50px;
+    height: 0;
+    background-color: ${(p) => p.theme.bgc.primary};
+    padding-bottom: 50px;
+    border-radius: 2px;
+    position: relative;
+    span{
+      cursor: pointer;
+      height:100%;
+      width:100%;
+      top:0;
+      left:0;
+      background-color: rgba(20,20,30,.7);
+      position:absolute;
+      ${_flex({})}
+      font-size:21px;
+    }
+    img {
+      width: 100%;
+    }
+  }
+`;
+export const Right = styled(Center)`
+  justify-content: flex-end;
+`;

@@ -30,6 +30,7 @@ export interface MusicState {
     musicUrl?: string;
     playlist?: [] | Array<Music>
     showplaylist?: boolean
+    showLyric?: boolean
 }
 
 export interface LoadMusic {
@@ -40,7 +41,7 @@ export interface LoadMusic {
 }
 
 export interface MusicAction {
-    type: "PLAY" | "SET_PLAY_LIST" | "toggle",
+    type: "PLAY" | "SET_PLAY_LIST" | "toggle" | "toggle_lyric",
     load: LoadMusic
 }
 

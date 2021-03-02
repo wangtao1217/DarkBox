@@ -77,6 +77,7 @@ function SongList({
       time: `${min}:${sec}`,
       duration: dt / 1000,
       index,
+      author:format_author(song.ar)
     });
   });
 

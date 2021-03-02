@@ -26,15 +26,6 @@ export default ({ value, min, max, children, setValue }: Range) => {
   return (
     <>
       <Container>
-        {/* <div
-          className="back"
-          ref={(ref) => (thumb_ref.current = ref)}
-          onMouseDown={(e) => mouseDown}
-        >
-          <div className="thumb">
-            <span>{children}</span>
-          </div>
-        </div> */}
         <React_range
           {...range_props}
           renderTrack={({ props, children }) => (
@@ -43,7 +34,6 @@ export default ({ value, min, max, children, setValue }: Range) => {
               onTouchStart={props.onTouchStart}
               style={{
                 ...props.style,
-                height: "8px",
                 display: "flex",
                 width: "100%",
               }}
@@ -51,12 +41,11 @@ export default ({ value, min, max, children, setValue }: Range) => {
               <div
                 ref={props.ref}
                 style={{
-                  height: "4px",
+                  height: "3px",
                   width: "100%",
-                  borderRadius: "4px",
                   background: getTrackBackground({
                     values: [value],
-                    colors: ["#f2f5ffd6", "#0000008a"],
+                    colors: ["#1b6cf6", "rgba(70,70,70,.2)"],
                     min,
                     max,
                   }),

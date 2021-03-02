@@ -17,7 +17,7 @@ function SideBar() {
     <Wrapper>
       <Log/>
       <Menu data={data}  />
-      <Player />
+      {/* <Player /> */}
     </Wrapper>
   );
 }

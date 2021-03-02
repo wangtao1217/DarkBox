@@ -34,6 +34,11 @@ export const music_reducer = (state: MusicState, { type, load }: MusicAction) =>
                 ...state,
                 showplaylist: !state.showplaylist
             }
+        case "toggle_lyric":
+            return {
+                ...state,
+                showLyric: !state.showLyric
+            }
         default:
             return null;
     }

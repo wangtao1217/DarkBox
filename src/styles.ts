@@ -23,26 +23,26 @@ const _textsize = (size) => {
   }
 }
 
-export const Container = styled.section`
-  /* ${_flex({})} */
+export const Body = styled.section`
   display: grid;
   grid-template-columns: 220px 1fr;
   height: 100vh;
   width: 100vw;
+  min-width:1000px;
+  min-height: 670px;
   background-color: ${(p) => p.theme.bgc.primary};
 `;
 
 export const Main = styled.section`
+position:relative;
   overflow: hidden;
   flex: 1;
-  ${_flex({})}
+  ${_flex({direc: "column"})}  
 `;
 
 export const Text = styled.span`
     height: auto;
     width: 100%;
-    /* color: #f2f2f2; */
-    /* font-size: 0.9rem; */
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -54,6 +54,8 @@ export const Text = styled.span`
 
 export const H1 = styled(Text)`
   ${_textsize("h1")}
+  font-size: "21px";
+      color: #79797d;
 `
 
 export const H2 = styled(Text)`
@@ -62,7 +64,15 @@ export const H2 = styled(Text)`
 
 export const H3 = styled(Text)`
   ${_textsize("h3")}
+  font-size: "14px";
+    color: #79797d;
 `
 export const H4 = styled(Text)`
   ${_textsize("h4")}
+`
+
+export const Container = styled.div`
+  ${_flex({f: "1"})}
+  width:100%;
+  overflow:auto;
 `
