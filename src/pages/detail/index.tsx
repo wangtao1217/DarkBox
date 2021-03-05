@@ -49,7 +49,6 @@ const Detail = () => {
   return (
     <Container>
       <Info {...InfoProps} />
-      {trackCount}
       <Songlist data={state.value} width={["0 40px", 2, "0 70px"]} />
     </Container>
   );

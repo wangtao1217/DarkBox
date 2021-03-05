@@ -1,8 +1,8 @@
 import * as React from "react";
 
-import { Container } from "./styles";
+import { Container, Button } from "./styles";
 import { AlbumType } from "../index";
-import { Text } from "../../../styles";
+import { Text, H1 } from "../../../styles";
 
 const Info = ({ name, description, tags, coverImgUrl }: AlbumType) => {
   return (
@@ -11,12 +11,16 @@ const Info = ({ name, description, tags, coverImgUrl }: AlbumType) => {
         <img src={coverImgUrl} alt={name}></img>
       </span>
       <section className="text">
-        <Text size="h2">{name}</Text>
-        <Text className="description m">{description}</Text>
+        <span className="title">{name}</span>
+        <span className="des">{description}</span>
         <span className="tags m">
           {tags?.map((item: string) => (
-            <span key={item}>{item}</span>
+            <span key={item}>{`#${item}`}</span>
           ))}
+        </span>
+        <span>
+        <Button>播放全部</Button>
+        <Button>收藏</Button>
         </span>
       </section>
     </Container>

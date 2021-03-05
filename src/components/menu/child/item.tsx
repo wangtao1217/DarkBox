@@ -5,6 +5,8 @@ import { MenuOption } from "../types";
 import { Item_wrapper } from "../styles";
 import { ActiveContext } from "../";
 
+import { Text } from '../../../styles'
+
 function Item({ content, index, route }: MenuOption) {
   const { act_num, dispatch } = useContext(ActiveContext);
   const act_route = useLocation().pathname.split('/')[1]
@@ -14,7 +16,7 @@ function Item({ content, index, route }: MenuOption) {
       <span className="icon">
         <h4>{index}</h4>
       </span>
-      <span>{content ? content : "none"}</span>
+      <Text>{content ? content : "none"}</Text>
     </Item_wrapper>
   );
 }

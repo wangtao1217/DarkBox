@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Container } from '../../../styles'
 
+
 const color = props => props.theme.bgc.primary
 const sider_css = {
     padding: 15,
@@ -9,11 +10,11 @@ const sider_css = {
 }
 
 const Top_Container = styled(Container)`
-    height: 50px;
-    width: 100%;
+    height: 100%;
+    width: 100%; 
     background-color: ${props => color(props)};
     box-sizing: border-box;
-    padding: 16px 20px;
+    padding: 16px 50px;
     justify-content: space-between;
     .link{
         text-decoration: none;
@@ -45,10 +46,11 @@ const Span = styled.span<{ active: boolean }>`
     &::before{
         position: absolute;
         content: '';
-        left:0;
+        left:10%;
         bottom: -8px;
-        width: 100%;
-        height:  ${p => p.active ? 4 : null}px;
+        width: 80%;
+        height:  ${p => p.active ? 6 : null}px;
+        border-radius: 4px;
         background-color: ${p => p.active ? p.theme.bgc.active : p.theme.text.secondary}; 
     }
 `

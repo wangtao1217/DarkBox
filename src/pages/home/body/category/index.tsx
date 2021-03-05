@@ -4,7 +4,8 @@ import { category } from '../../../../api/home';
 
 const Category = () => {
     useEffect(() => {
-        category().then(res => {
+        category(10).then(res => {
+            console.log("res.............");
             console.log(res);
         })
     }, [])

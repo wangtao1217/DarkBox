@@ -38,8 +38,9 @@ export const Container = styled.div<{ occupy: boolean }>`
     margin-left: 12px;
     box-sizing: border-box;
     padding: 2px 0;
-    font-size: 14px;
+    /* font-size: 14px; */
   }
+  
 `;
 
 export const Center = styled.section`
@@ -47,11 +48,31 @@ export const Center = styled.section`
   flex:2;
   i {
     margin: 0 2px;
-    cursor: pointer;
     height: 40px;
     width: 32px;
-    background-color: #f2f2f2;
+    background-color: #f2f2f2; 
   }
+  .normal{
+    cursor: pointer;
+    width:36px;
+    font-size:18px;
+    transition:.2s;
+    color:  ${(p) => p.theme.text.secondary};
+    &:hover{
+      color: rgba(97,122,255,1);
+    }
+  }
+  .icon{
+    cursor: pointer;
+    font-size: 21px;
+    height:24px; 
+    width:24px;
+    color:  ${(p) => p.theme.text.secondary};
+    margin:5px;
+  }
+  .play{ font-size: 32px;  height:40px; 
+    width:40px;
+    color:rgba(97,122,255,1);}
 `;
 
 export const Left = styled(Center)<{hovered: boolean}>`

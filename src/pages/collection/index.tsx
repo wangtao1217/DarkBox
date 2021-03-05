@@ -33,11 +33,11 @@ const AlbumList = ({ type }: ListType) => {
   }, [songs]);
   return (
     <Container>
-      {data.map((item: CardType) => {
+      {data.map((item) => {
         const { name, coverImgUrl, id } = item;
         return (
           <Item key={id}>
-            <Card name={name} coverImgUrl={coverImgUrl} id={id} />
+            <Card text={name} coverImgUrl={coverImgUrl} id={id} />
           </Item>
         );
       })}

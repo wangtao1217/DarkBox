@@ -5,6 +5,7 @@ import { format_lyric } from "../../../../utils/formatter";
 
 import { AudioContext, MusicContext } from "../../../../content/MusicContext";
 import { Wrapper } from './styles'
+import { H3 } from '../../../../styles'
 
 const Lyric = () => {
   const [lyric, setLyric] = useState([]);
@@ -15,14 +16,10 @@ const Lyric = () => {
   const lyric_ref = useRef(null);
   const height = 50;
 
-  // console.log(state)
   useEffect(() => {
-
-    // if (id) {
       getLyric(musicId).then(({lrc}) => {
         setLyric(() => format_lyric(lrc?.lyric))
       });
-    // }
   }, [musicId]);
 
   useEffect(() => {
@@ -62,7 +59,7 @@ const Lyric = () => {
         })
       ) : (
         <span>
-          <h3>{"🎧纯音乐..."}</h3>
+          <H3>{"这是一首纯音乐"}</H3>
         </span>
       )}
     </Wrapper>

@@ -32,7 +32,7 @@ export const music_reducer = (state: MusicState, { type, load }: MusicAction) =>
         case "toggle":
             return {
                 ...state,
-                showplaylist: !state.showplaylist
+                showplaylist:load.showplaylist 
             }
         case "toggle_lyric":
             return {

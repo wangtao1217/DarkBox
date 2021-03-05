@@ -15,15 +15,14 @@ export const SearchContainer = styled.div`
     width: 100%;
     position: relative;
     input {
-      height: 70px;
+      height: 90px;
       padding: 0 20px;
       width: 100%;
       font-size: 20px;
       outline: none;
       border: none;
       background-color: rgba(100, 100, 100, 0.2);
-      margin: 20px;
-      border-radius: 4px;
+      margin: 0 20px;
       &::placeholder {
         color: ${(p) => p.theme.text.secondary};
       }
@@ -37,7 +36,7 @@ export const SearchContainer = styled.div`
     flex-wrap: wrap;
     flex: 1;
     overflow-y: hidden;
-    padding: 20px;
+    padding: 10px;
     box-sizing: border-box;
   }
 `;

@@ -6,8 +6,8 @@ export interface MenuOption {
     render?: Element;
     children?: Array<Element> | null;
     direction?: string;
-    index?: number|string
+    index?: number|string|Element
     key: number
-    icon?: string
+    icon?: string | Element
 }
 

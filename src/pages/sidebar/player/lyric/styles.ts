@@ -40,6 +40,8 @@ export const LyricContainer = styled(Container)<{ showed: boolean }>`
   transform: translateY(${({ showed }) => (showed ? 0 : "100vh")});
   transition: 0.3s;
   .cover {
+  padding: 0 40px;
+  box-sizing:border-box;
     backdrop-filter: blur(18px);
     background-color: rgba(10, 10, 12, 0.7);
     height: 100vh;
@@ -49,12 +51,19 @@ export const LyricContainer = styled(Container)<{ showed: boolean }>`
     top: 0;
     left: 0;
     display: grid;
-    /* grid-area:; */
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 50px 1fr 80px;
-    section {
-    }
     .top {
+    .icon{
+      cursor:pointer;
+      width:30px;
+      height:30px;
+      margin:10px 0;
+      font-size:21px;
+      color:white;
+      opacity:.7;
+      &:hover{ opacity:1; }
+    }
       grid-column: 1 / 3;
     }
     .foot {
@@ -62,12 +71,10 @@ export const LyricContainer = styled(Container)<{ showed: boolean }>`
       width: 100%;
       height: 80px;
       box-sizing: border-box;
-      padding: 0 50px;
     }
     .lyric {
       ${_flex({ direc: "column" })}
       height:100%;
-      padding: 20px 0;
       overflow: auto;
       width: 100%;
       .name {
@@ -78,8 +85,6 @@ export const LyricContainer = styled(Container)<{ showed: boolean }>`
       }
       .author {
         ${_flex({ direc: "column" })}
-        font-size: 14px;
-        color: rgba(120, 120, 120);
         margin-bottom: 30px;
       }
     }

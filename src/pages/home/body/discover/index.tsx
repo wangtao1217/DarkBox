@@ -1,34 +1,32 @@
-import React from 'react'
-import Card from '../../../../components/card'
+import React,{useEffect, useState} from "react";
+import { H1 } from "../../../../styles";
+import PageCard from "./PageCard";
+import NewSongs from "./NewSongs"
+import { AlbumnType } from "../index";
+import { new_song } from "../../../../api/songs"
+import { homepage } from '../../../../api/home'
 
 
-const Discover = ({albumns}) => {
-    return (
-        <>
-      <section className="container">
-      <section className="banner"> </section>
+const Discover = ({ albumns }: { albumns: Array<AlbumnType> }) => {
+ const [songs, setSongs] = useState()
+  useEffect(() => {
+  new_song(0).then(res=>{
+    console.log(res);
+    setSongs(res.data.slice(0,5))
+  })
+  homepage().then(res=>{
+    console.log(res); 
     
-      <section>
-        <div className="wrapper">
-          {albumns.map((i) => {
-            const {
-              name,
-              id,
-              picUrl,
-              playCount,
-              trackNumberUpdateTime,
-              trackCount,
-            } = i;
-            return (
-              <div className="item">
-                <Card name={name} coverImgUrl={picUrl} id={id} />
-              </div>
-            );
-          })}
-        </div>
+  })
+ }, [new_song])
+  return (
+    <>
+      <section className="container">
+        <PageCard albumns={albumns} />
+        <NewSongs songs={songs}/>
       </section>
-    </section></>
-    )
-}
+    </>
+  );
+};
 
-export default Discover
+export default Discover;

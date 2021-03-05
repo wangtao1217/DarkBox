@@ -1,25 +1,27 @@
 import styled from 'styled-components'
+import { _flex } from '../../../utils/mixin'
+
+
+export const home_css = {
+    padding_side: "30px",
+  }
+const { padding_side } = home_css
 
 const Container = styled.div`
     overflow: scroll;
     height: 100%;
-    padding: 30 50px;
+    padding: 30 ${padding_side};
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 10px 20px;
+    padding: 0 20px;
     background-color: ${p => p.theme.bgc.primary};
     &::-webkit-scrollbar {
         display: none;
     }
     .container{
-        display: grid;
-        grid-template-rows: auto 220px;
-        column-gap: 20px;
-        row-gap: 15px;
         height: 100%;
         width: 100%;
-        /* padding: 20px 36px; */
         box-sizing: border-box;
     }
     .banner{
@@ -32,13 +34,11 @@ const Container = styled.div`
     }
     .item{
         margin: 0 10px;
-        height: 100%;
-        width: 120px;
-        display: flex;
-    }.wrapper{
-            display: flex;
-            
-        }
+        height: auto;
+        width: 100%;
+        /* display: flex; */
+    }
+   
     .albumns{
         display: flex;
         flex-direction: column;

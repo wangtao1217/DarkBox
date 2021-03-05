@@ -13,12 +13,11 @@ const Log_container = styled.div<{ closed: boolean }>`
     z-index: 300;
     transform:translateY(${p => p.closed ? 0 : "-100vh"});
     transition:.3s;
-background-color: rgba(20,20,22,.5);
     .main{
         position:relative;
     background-color: ${p => p.theme.bgc.secondary};
-    height: 60vh;
-    width: 30vw;
+    height: 240px;
+    width: 320px;
     display:flex;
     flex-direction:column;
     align-items: center;
@@ -54,7 +53,7 @@ background-color: rgba(20,20,22,.5);
     .close{
         cursor:pointer;
         position:absolute;
-        top:10px;
+        top:5px;
         right:10px;
         color:white;
         font-size:18px;

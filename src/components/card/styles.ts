@@ -33,7 +33,6 @@ const Wrapper = styled.div<{ onClick }>`
     height: auto;
     width: 100%;
     color: #f2f2f2;
-    font-size: 0.9rem;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;

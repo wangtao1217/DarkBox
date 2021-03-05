@@ -1,21 +1,14 @@
 import * as React from "react";
 import { useEffect, useState, useCallback } from "react";
-import styled from "styled-components";
-import { useHistory } from "react-router-dom";
-import SongList from "../../../components/songlist";
 
-// import format_Album from '../../hooks/useAlbum'
 import { rec_album } from "../../../api/home";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
-import Card from "../../../components/card/index";
-import Table from "../../../components/songlist/table";
-// import Layout from "../../../components/layout/index";
 import Discover from "./discover";
 import Category from './category'
 import { Container } from "./styles";
 
 
-type AlbumnType = {
+export type AlbumnType = {
   name: string;
   id: number;
   picUrl: string;
@@ -29,7 +22,7 @@ function Content() {
   const { path } = useRouteMatch();
 
   useEffect(() => {
-    rec_album(5).then((res) => {
+    rec_album(5 ).then((res) => {
       setAlbumns(res);
     });
   }, [rec_album]);

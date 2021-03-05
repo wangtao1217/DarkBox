@@ -7,10 +7,9 @@ export const Container = styled.div`
     display: grid;
     grid-template-columns: repeat(5,1fr);
     justify-items: center;
-    padding: 36px 60px;
+    padding: 36px 20px;
     align-content: c;
     box-sizing: border-box;
-    overflow-x: scroll;
 `
 export const Item = styled.div`
     height: 200px;

@@ -52,7 +52,7 @@ const Result = ({ result, playlist }) => {
               const { name, coverImgUrl, id } = i;
               return (
                 <span className="wrapper">
-                  <Card name={name} coverImgUrl={coverImgUrl} id={id} />
+                  <Card text={name} coverImgUrl={coverImgUrl} id={id} />
                 </span>
               );
             })}

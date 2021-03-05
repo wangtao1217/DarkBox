@@ -6,6 +6,17 @@ import React, {
   useMemo,
 } from "react";
 
+import {
+  faChevronUp,
+  faAngleDown,
+  faAngleDoubleUp,
+  faPlayCircle,
+  faPauseCircle,
+  faStepForward,
+  faStepBackward,
+  faList
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Container, Center, Left, Right } from "./styles";
 import { format_time, format_author } from "../../../utils/formatter";
 import Range from "../../../components/range/index";
@@ -15,7 +26,7 @@ import { Text, H1, H3 } from "../../../styles";
 import { useHover } from "react-use";
 
 function Player(props) {
-  const {lyric_mode} = props
+  const { lyric_mode } = props;
   const [hovered, setHover] = useState(false);
 
   const [music, onPlay, playPrev, playNext, randomPlay] = usePlay();
@@ -45,35 +56,51 @@ function Player(props) {
             ></Range>
           </span>
 
-          {lyric_mode?`${min}:${sec}/${dt_min}:${dt_sec}`:<Left>
-            <div
-              className="infor-img"
-              onMouseEnter={() => setHover(true)}
-              onMouseLeave={() => setHover(false)}
-              onClick={() => dispatch({ type: "toggle_lyric" })}
-            >
-              <img src={picUrl} alt="专辑封面" />
-              {hovered ? <span>X</span> : null}
-            </div>
-            <section className="text">
-              <Text size="h2">{name}</Text>
-              <H3 size="h4">{format_author(ar)}</H3>
-            </section>
-          </Left>}
+          {lyric_mode ? (
+            <H3>{`${min}:${sec}/${dt_min}:${dt_sec}`}</H3>
+          ) : (
+            <Left>
+              <div
+                className="infor-img"
+                onMouseEnter={() => setHover(true)}
+                onMouseLeave={() => setHover(false)}
+                onClick={() => dispatch({ type: "toggle_lyric" })}
+              >
+                <img src={picUrl} alt="专辑封面" />
+                {hovered ? <span>
+                  <FontAwesomeIcon icon={faAngleDoubleUp}/>
+                </span> : null}
+              </div>
+              <section className="text">
+                <H1 >{name}</H1>
+                <H3 size="h4">{format_author(ar)}</H3>
+              </section>
+            </Left>
+          )}
 
           <Center>
-            <i onClick={() => randomPlay()}></i>
-            <i onClick={() => playPrev()}></i>
-            <i onClick={() => togPlay()}></i>
-            <i onClick={() => playNext()}></i>
-            <i onClick={() => {}}></i>
+            <FontAwesomeIcon className="icon" onClick={() => playPrev()} icon={faStepBackward } />
+            <FontAwesomeIcon className="icon play" onClick={() => togPlay()} icon={paused?faPlayCircle:faPauseCircle} />
+            <FontAwesomeIcon className="icon" onClick={() => playNext()} icon={faStepForward} />
           </Center>
+         
 
           <Right>
             <span>
-              {lyric_mode?null:`${min}:${sec}/${dt_min}:${dt_sec}`}
+              {lyric_mode ? null : <H3>{`${min}:${sec}/${dt_min}:${dt_sec}`}</H3>}
             </span>
-            <i onClick={() => dispatch({ type: "toggle" })}></i>
+            <FontAwesomeIcon
+            className="normal"
+            icon={faList}
+              onClick={() =>
+                dispatch({
+                  type: "toggle",
+                  load: {
+                    showplaylist: true,
+                  },
+                })
+              }
+            />
           </Right>
         </>
       ) : null}

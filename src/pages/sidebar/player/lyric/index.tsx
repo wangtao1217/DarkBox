@@ -2,10 +2,12 @@ import React, { useContext } from "react";
 import Lyric from "./Lyric";
 import { LyricContainer } from "./styles";
 import { MusicContext } from "../../../../content/MusicContext";
-import { H1, H3 } from "../../../../styles";
+import { H1, H3, Box } from "../../../../styles";
 import Player from "../../player";
 
-// const Container =
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const LyricPage = () => {
   const { state, dispatch } = useContext(MusicContext);
   const { name, author, duration, picUrl, id } = state.music;
@@ -13,27 +15,27 @@ const LyricPage = () => {
   return (
     <LyricContainer showed={state.showLyric} url={picUrl}>
       <span className="backimg">
-      <img  src={picUrl} alt="..." />
+        <img src={picUrl} alt="..." />
       </span>
       <section className="cover">
         <section
           className="top"
           onClick={() => dispatch({ type: "toggle_lyric" })}
         >
-          <span className="close">X</span>
+          <FontAwesomeIcon className="icon" icon={faAngleDown} />
         </section>
 
         <section className="img">
           <img src={picUrl} alt={name} />
         </section>
 
-        <section className="lyric">
-          <span className="item name">{name}</span>
-          <span className="item author">{`歌手:${author}`}</span>
+        <Box p="20px 30px" h="100%" w="100%" className="lyric">
+          <H1 className="item name">{name}</H1>
+          <H3 className="item author">{`歌手:${author}`}</H3>
           <Lyric />
-        </section>
+        </Box>
         <section className="foot">
-          <Player lyric_mode={true}/>
+          <Player lyric_mode={true} />
         </section>
       </section>
     </LyricContainer>

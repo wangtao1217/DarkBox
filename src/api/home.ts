@@ -23,9 +23,18 @@ export const rec_album = async (limit: number) => {
     return (await response).result
 }
 
-export const category =  () => {
+export const category = (limit) => {
     return axios({
-        url: '/playlist/catlist'
+        url: '/top/playlist/highquality',
+        params: {
+            limit
+        }
     })
 
+}
+
+export const homepage = () => {
+    return axios({
+        url: '/homepage/dragon/ball',
+    })
 }

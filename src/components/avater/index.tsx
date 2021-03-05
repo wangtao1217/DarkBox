@@ -1,15 +1,15 @@
 import * as React from "react";
 import styled from "styled-components";
 
-
+const size = 24
 const Img_container = styled.div`
   display: flex;
-  height: 36px;
-  width: 36px;
-  /* padding-left: 100%; */
+  height: ${size}px;
+  width: ${size}px;
   overflow: hidden;
-  border-radius: 18px;
+  border-radius: ${size/2}px;
   background-color: #f2f2f2;
+  margin-right: 5px;
 `
 
 function Avater({ picUrl }: { picUrl: string }) {

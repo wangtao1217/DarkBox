@@ -2,23 +2,26 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 
 import { Wrapper } from "./styles";
-
+import { H3, H4 } from "../../styles";
+import { JsxElement } from "typescript";
 export interface CardType {
-  name: string;
+  content?:any;
+  text?: String;
   coverImgUrl?: string;
   id?: number;
+  callback?: Function;
 }
 
-function Card({ name, coverImgUrl, id }: CardType) {
+function Card({ text, content, coverImgUrl, id, callback }: CardType) {
   const history = useHistory();
   const handleClick = () => history.push(`/detail/${id}`);
 
   return (
-    <Wrapper onClick={handleClick}>
+    <Wrapper id={id} onClick={callback ? callback : handleClick}>
       <div>
-        <img src={coverImgUrl} alt={name} />
+        <img src={coverImgUrl}  />
       </div>
-      <span>{name}</span>
+      <H3>{text||content}</H3>
     </Wrapper>
   );
 }

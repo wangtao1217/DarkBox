@@ -3,6 +3,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { LogContainer } from "./style";
 import { LogContext } from "../../../content/LogContext";
 import Avater from "../../../components/avater";
+// import 
 
 const initial_profile = {
   avatarUrl: null,
@@ -33,8 +34,9 @@ const Log = () => {
         </>
       ) : (
         <>
-          <span className="login" onClick={() => handle_login()}>
-            {"🤴 登录"}
+          <Avater picUrl="''" />
+          <span className="user-name" onClick={() => handle_login()}>
+            {"点击登录"}
           </span>
         </>
       )}
