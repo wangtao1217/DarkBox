@@ -42,11 +42,7 @@ API接口 :  [NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMus
 
 ​	✅ 歌词页
 
-
-
-
 ![img](/public/1.gif)
-
 ![img](/public/2.gif)
 
 ### built-with
