@@ -45,7 +45,7 @@ API接口 :  [NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMus
 
 
 
-![img](./public/1.git)
+![img](./public/1.gif)
 
 ![img](https://s31.aconvert.com/convert/p3r68-cdx67/27xwy-qoa5p.gif)
 
