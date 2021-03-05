@@ -27,7 +27,9 @@ export const LyricContainer = styled(Container)<{ showed: boolean }>`
     left: 0;
     width: 100%;
     position: absolute;
-    img{ width: 100%; }
+    img {
+      width: 100%;
+    }
   }
   overflow: hidden;
   position: relative;
@@ -40,8 +42,8 @@ export const LyricContainer = styled(Container)<{ showed: boolean }>`
   transform: translateY(${({ showed }) => (showed ? 0 : "100vh")});
   transition: 0.3s;
   .cover {
-  padding: 0 40px;
-  box-sizing:border-box;
+    padding: 0 40px;
+    box-sizing: border-box;
     backdrop-filter: blur(18px);
     background-color: rgba(10, 10, 12, 0.7);
     height: 100vh;
@@ -54,16 +56,18 @@ export const LyricContainer = styled(Container)<{ showed: boolean }>`
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 50px 1fr 80px;
     .top {
-    .icon{
-      cursor:pointer;
-      width:30px;
-      height:30px;
-      margin:10px 0;
-      font-size:21px;
-      color:white;
-      opacity:.7;
-      &:hover{ opacity:1; }
-    }
+      .icon {
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        margin: 10px 0;
+        font-size: 21px;
+        color: white;
+        opacity: 0.7;
+        &:hover {
+          opacity: 1;
+        }
+      }
       grid-column: 1 / 3;
     }
     .foot {
